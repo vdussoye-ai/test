@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Client Analyzer</h1>
+    <form id="analyze-form">
+      <label for="client-name">Client Name</label>
+      <input
+        type="text"
+        id="client-name"
+        name="clientName"
+        placeholder="Enter client name"
+        autocomplete="off"
+        required
+      >
+      <label for="content">Content</label>
+      <textarea
+        id="content"
+        name="content"
+        rows="6"
+        placeholder="Enter text to analyze..."
+        required
+      ></textarea>
+      <button type="submit" id="submit-btn">Analyze</button>
+    </form>
+    <div id="result" class="result hidden"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
