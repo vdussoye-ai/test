@@ -10,7 +10,12 @@
   var form = document.getElementById("wizard-form");
   var reviewContent = document.getElementById("review-content");
   var resultDiv = document.getElementById("result");
-  var resultText = document.getElementById("result-text");
+  var resOverview = document.getElementById("res-overview");
+  var resScope = document.getElementById("res-scope");
+  var resRisks = document.getElementById("res-risks");
+  var resAssumptions = document.getElementById("res-assumptions");
+  var errorDiv = document.getElementById("error-result");
+  var errorText = document.getElementById("error-text");
 
   var fieldLabels = {
     clientName: "Client Name",
@@ -102,6 +107,9 @@
     btnSubmit.disabled = true;
     btnSubmit.textContent = "Submitting…";
 
+    resultDiv.classList.add("hidden");
+    errorDiv.classList.add("hidden");
+
     fetch("/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -111,12 +119,42 @@
         return res.json();
       })
       .then(function (json) {
-        resultText.textContent = json.proposal;
+        if (json.error) {
+          errorText.textContent = json.error;
+          errorDiv.classList.remove("hidden");
+          return;
+        }
+
+        var p = json.proposal;
+
+        resOverview.textContent = p.overview;
+
+        resScope.innerHTML = "";
+        p.proposedScope.forEach(function (item) {
+          var li = document.createElement("li");
+          li.textContent = item;
+          resScope.appendChild(li);
+        });
+
+        resRisks.innerHTML = "";
+        p.keyRisks.forEach(function (item) {
+          var li = document.createElement("li");
+          li.textContent = item;
+          resRisks.appendChild(li);
+        });
+
+        resAssumptions.innerHTML = "";
+        p.assumptions.forEach(function (item) {
+          var li = document.createElement("li");
+          li.textContent = item;
+          resAssumptions.appendChild(li);
+        });
+
         resultDiv.classList.remove("hidden");
       })
       .catch(function (err) {
-        resultText.textContent = "Error: " + err.message;
-        resultDiv.classList.remove("hidden");
+        errorText.textContent = "Error: " + err.message;
+        errorDiv.classList.remove("hidden");
       })
       .finally(function () {
         btnSubmit.disabled = false;

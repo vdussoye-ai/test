@@ -80,8 +80,32 @@
     </form>
 
     <div id="result" class="hidden">
-      <h2>Response</h2>
-      <pre id="result-text"></pre>
+      <h2>Generated Proposal</h2>
+
+      <section class="proposal-section">
+        <h3>Overview</h3>
+        <p id="res-overview"></p>
+      </section>
+
+      <section class="proposal-section">
+        <h3>Proposed Scope</h3>
+        <ul id="res-scope"></ul>
+      </section>
+
+      <section class="proposal-section">
+        <h3>Key Risks</h3>
+        <ul id="res-risks"></ul>
+      </section>
+
+      <section class="proposal-section">
+        <h3>Assumptions</h3>
+        <ul id="res-assumptions"></ul>
+      </section>
+    </div>
+
+    <div id="error-result" class="hidden">
+      <h2>Error</h2>
+      <p id="error-text"></p>
     </div>
   </div>
   <script src="app.js"></script>

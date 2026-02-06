@@ -192,11 +192,57 @@ textarea {
   color: #1a1a2e;
 }
 
-#result pre {
-  background: #f7fafc;
-  padding: 16px;
-  border-radius: 6px;
+.proposal-section {
+  margin-top: 18px;
+}
+
+.proposal-section:first-child {
+  margin-top: 0;
+}
+
+.proposal-section h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4a90d9;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.proposal-section p {
   font-size: 0.9rem;
-  white-space: pre-wrap;
-  word-break: break-word;
+  line-height: 1.6;
+  color: #333;
+}
+
+.proposal-section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.proposal-section ul li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+/* Error result */
+#error-result {
+  margin-top: 24px;
+  background: #fff5f5;
+  padding: 24px;
+  border-radius: 10px;
+  border-left: 4px solid #e53e3e;
+}
+
+#error-result h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #c53030;
+}
+
+#error-text {
+  font-size: 0.9rem;
+  color: #742a2a;
 }
