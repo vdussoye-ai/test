@@ -1,0 +1,12 @@
+{
+  "name": "proposal-wizard",
+  "version": "1.0.0",
+  "description": "Multi-step wizard form with Express backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

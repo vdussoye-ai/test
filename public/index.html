@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal Wizard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wizard">
+    <h1>Proposal Wizard</h1>
+
+    <div class="progress-bar">
+      <div class="step-indicator active" data-step="1">1. Client Info</div>
+      <div class="step-indicator" data-step="2">2. Timeline</div>
+      <div class="step-indicator" data-step="3">3. Resources</div>
+      <div class="step-indicator" data-step="4">4. Review</div>
+    </div>
+
+    <form id="wizard-form">
+      <!-- Step 1: Client Info -->
+      <fieldset class="step" id="step-1">
+        <legend>Client Information</legend>
+        <label for="clientName">Client Name</label>
+        <input type="text" id="clientName" name="clientName" required>
+
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="projectName">Project Name</label>
+        <input type="text" id="projectName" name="projectName" required>
+
+        <label for="description">Project Description</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </fieldset>
+
+      <!-- Step 2: Timeline -->
+      <fieldset class="step hidden" id="step-2">
+        <legend>Timeline</legend>
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" name="startDate" required>
+
+        <label for="endDate">End Date</label>
+        <input type="date" id="endDate" name="endDate" required>
+
+        <label for="milestones">Key Milestones</label>
+        <textarea id="milestones" name="milestones" rows="4" placeholder="One milestone per line" required></textarea>
+      </fieldset>
+
+      <!-- Step 3: Resources -->
+      <fieldset class="step hidden" id="step-3">
+        <legend>Resources</legend>
+        <label for="budget">Budget ($)</label>
+        <input type="number" id="budget" name="budget" min="0" step="100" required>
+
+        <label for="teamSize">Team Size</label>
+        <input type="number" id="teamSize" name="teamSize" min="1" required>
+
+        <label for="skills">Required Skills</label>
+        <textarea id="skills" name="skills" rows="3" placeholder="e.g. JavaScript, Python, Project Management" required></textarea>
+
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </fieldset>
+
+      <!-- Step 4: Review -->
+      <fieldset class="step hidden" id="step-4">
+        <legend>Review &amp; Submit</legend>
+        <div id="review-content"></div>
+      </fieldset>
+
+      <div class="nav-buttons">
+        <button type="button" id="btn-back" class="btn btn-back hidden">Back</button>
+        <button type="button" id="btn-next" class="btn btn-next">Next</button>
+        <button type="submit" id="btn-submit" class="btn btn-submit hidden">Submit</button>
+      </div>
+    </form>
+
+    <div id="result" class="hidden">
+      <h2>Response</h2>
+      <pre id="result-text"></pre>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
